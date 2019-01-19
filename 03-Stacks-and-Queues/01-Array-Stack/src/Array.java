@@ -1,3 +1,8 @@
+/**
+ * @Auther: lss
+ * @Date: 2019/1/19 20:00
+ * @Description:
+ */
 public class Array<E> {
 
     private E[] data;
