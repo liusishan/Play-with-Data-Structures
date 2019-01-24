@@ -105,6 +105,7 @@ public class LinkedList<E> {
 
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Set failed.Illegal index.");
+
         Node cur = dummyHead.next;
         for (int i = 0; i < index; i++)
             cur = cur.next;
@@ -122,6 +123,36 @@ public class LinkedList<E> {
         }
         return false;
     }
+
+    // 从链表中删除index(0-based)位置的元素，返回删除的元素
+    // 在链表中不是一个常用的操作，练习用:)
+    public E remove(int index) {
+
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("remove failed.Illegal index.");
+
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++)
+            prev = prev.next;
+
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        size--;
+
+        return retNode.e;
+    }
+
+    // 从链表中删除第一个元素，返回删除的元素
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    // 从链表中删除最后一个元素
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
 
     @Override
     public String toString() {
