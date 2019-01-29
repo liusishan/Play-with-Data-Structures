@@ -16,10 +16,20 @@ class Solution {
                 ListNode delNode = prev.next;
                 prev.next = delNode.next;
                 delNode.next = null;
-            }
-            else
+            } else
                 prev = prev.next;
         }
         return head;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 6, 3, 4, 5, 6};
+        ListNode head = new ListNode(nums);
+        System.out.println(head);
+
+//        Solution solution = new Solution();
+//        solution.removeElements(listNode,6);
+        ListNode res = (new Solution()).removeElements(head, 6);
+        System.out.println(res);
     }
 }
