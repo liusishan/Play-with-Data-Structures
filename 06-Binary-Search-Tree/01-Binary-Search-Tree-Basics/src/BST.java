@@ -55,4 +55,39 @@ public class BST<E extends Comparable<E>> {
         return node;
     }
 
+    // 看二分搜索树种是否包含元素e
+    public boolean contains(E e) {
+        return cotains(root, e);
+    }
+
+    // 看以node为根的二分搜索树种是否包含元素e,递归算法
+    private boolean cotains(Node node, E e) {
+
+        if (node == null)
+            return false;
+
+        if (e.compareTo(node.e) == 0)
+            return true;
+        else if (e.compareTo(node.e) < 0)
+            return cotains(node.left, e);
+        else // e.compareTo(node.e) > 0
+            return cotains(node.right, e);
+    }
+
+    // 二分搜索树的前序遍历
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    // 前序遍历以node为根的二分搜索树，递归算法
+    private void preOrder(Node node) {
+
+        if (node == null)
+            return;
+
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
 }
