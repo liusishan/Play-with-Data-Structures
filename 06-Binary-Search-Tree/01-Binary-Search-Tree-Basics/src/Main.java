@@ -11,6 +11,7 @@ public class Main {
         for (int num : nums)
             bst.add(num);
 
-        bst.preOrder();
+//        bst.preOrder();
+        System.out.println(bst);
     }
 }
