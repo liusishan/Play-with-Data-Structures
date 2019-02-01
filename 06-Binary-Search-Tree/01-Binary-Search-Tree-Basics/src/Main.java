@@ -11,7 +11,9 @@ public class Main {
         for (int num : nums)
             bst.add(num);
 
+        bst.inOrder();
+        System.out.println();
 //        bst.preOrder();
-        System.out.println(bst);
+//        System.out.println(bst);
     }
 }
