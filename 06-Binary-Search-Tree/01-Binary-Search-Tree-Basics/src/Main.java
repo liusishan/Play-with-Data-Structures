@@ -11,13 +11,14 @@ public class Main {
         for (int num : nums)
             bst.add(num);
 
-        bst.inOrder();
-        System.out.println();
-
-        bst.postOrder();
-        System.out.println();
-        bst.preOrderNR();
-        System.out.println();
+        bst.levelOrder();
+//        bst.inOrder();
+//        System.out.println();
+//
+//        bst.postOrder();
+//        System.out.println();
+//        bst.preOrderNR();
+//        System.out.println();
 //        bst.preOrder();
 //        System.out.println(bst);
     }
