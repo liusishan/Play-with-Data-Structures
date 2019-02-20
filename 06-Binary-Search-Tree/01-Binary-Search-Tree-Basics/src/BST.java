@@ -1,5 +1,7 @@
 import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -95,16 +97,16 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 二分搜索树的非递归前序遍历
-    public void preOrderNR(){
+    public void preOrderNR() {
         Stack<Node> stack = new Stack<>();
         stack.push(root);
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             Node cur = stack.pop();
             System.out.println(cur.e);
 
-            if(cur.right!=null)
+            if (cur.right != null)
                 stack.push(cur.right);
-            if (cur.left!=null)
+            if (cur.left != null)
                 stack.push(cur.left);
         }
     }
@@ -139,6 +141,22 @@ public class BST<E extends Comparable<E>> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
+    }
+
+    // 二分搜索树的层序遍历
+    public void levelOrder() {
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node cur = queue.remove();
+            System.out.println(cur.e);
+
+            if (cur.left != null)
+                queue.add(cur.left);
+            if (cur.right != null)
+                queue.add(cur.right);
+        }
     }
 
     @Override
