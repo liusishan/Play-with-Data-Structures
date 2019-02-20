@@ -1,3 +1,7 @@
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
+
+import java.util.Stack;
+
 /**
  * @Auther: lss
  * @Date: 2019/1/30 21:40
@@ -88,6 +92,21 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    // 二分搜索树的非递归前序遍历
+    public void preOrderNR(){
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+
+            if(cur.right!=null)
+                stack.push(cur.right);
+            if (cur.left!=null)
+                stack.push(cur.left);
+        }
     }
 
     // 二分搜索树的中序遍历
